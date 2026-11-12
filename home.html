@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block content %}
+<section class="hero"><div class="eyebrow">CAMPUS DIGITAL SERVICES</div><h1>Digital On-Duty<br><em>Management System</em></h1><p>One connected workflow for OD applications, adviser review and HOD approval.</p>
+<div class="hero-actions"><a class="btn" href="{{url_for('login')}}">Login to Portal</a><a class="btn outline" href="{{url_for('register')}}">Create Account</a></div></section>
+<section class="roles"><article><span>01</span><h3>Student</h3><p>Apply for OD and track approval status.</p></article><article><span>02</span><h3>Adviser</h3><p>Review applications and forward or reject requests.</p></article><article><span>03</span><h3>HOD</h3><p>Make the final decision on adviser-approved requests.</p></article></section>
+{% endblock %}
