@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: sri-eshwar-digital-od
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: REGISTRATION_CODE
+        value: ruban2009@
+      - key: RESET_PIN
+        value: "6899"
+      - key: DB_PATH
+        value: /var/data/digital_od.sqlite3
+    disk:
+      name: od-data
+      mountPath: /var/data
+      sizeGB: 1
