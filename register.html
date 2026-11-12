@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block content %}<section class="auth card wideauth"><div class="eyebrow">NEW ACCOUNT</div><h1>Register</h1><p class="muted">Choose your role and create your account.</p><form method="post">
+<label>Register as</label><select name="role" id="role" onchange="toggleStudent()" required><option value="student">Student</option><option value="adviser">Adviser</option><option value="hod">HOD</option></select>
+<label>Full name</label><input name="full_name" required placeholder="Full name"><label>Email address</label><input type="email" name="email" required placeholder="name@college.edu">
+<div id="studentFields"><label>Register number</label><input name="register_id" placeholder="College register number"><label>Class adviser</label><select name="adviser_email"><option value="">Select adviser</option>{% for a in advisers %}<option value="{{a.email}}">{{a.full_name}} · {{a.email}}</option>{% endfor %}</select></div>
+<label>Password</label><input type="password" name="password" minlength="8" required><label>Confirm password</label><input type="password" name="confirm_password" minlength="8" required>
+<label>Registration password</label><input type="password" name="registration_code" required placeholder="Enter common registration password">
+<button class="btn full">Create Account</button></form><p class="links"><a href="{{url_for('login')}}">Already registered? Login</a></p></section>
+<script>function toggleStudent(){document.getElementById('studentFields').style.display=document.getElementById('role').value==='student'?'block':'none'}toggleStudent()</script>{% endblock %}
